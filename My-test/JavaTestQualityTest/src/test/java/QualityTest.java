@@ -136,4 +136,19 @@ public class QualityTest {
         short s = 1;
         shortList.contains(s + 1 );
     }
+
+    @Test
+    @DisplayName("70 단일 객체와 컬렉션 혼합")
+    void singleObjectAndCollectionMixTest() {
+        List<Object> list = new ArrayList<>();
+
+        List<String> list2 = List.of("my", "name", "is");
+        list.add("one");
+        list.add("two");
+        list.add("three");
+
+
+        list.add(list2);
+        list.stream().forEach(System.out::println);
+    }
 }

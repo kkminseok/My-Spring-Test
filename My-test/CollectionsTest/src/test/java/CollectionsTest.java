@@ -1,9 +1,11 @@
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class CollectionsTest {
 
@@ -21,6 +23,7 @@ public class CollectionsTest {
         //바이너리 서치
         int i = Arrays.binarySearch(array, 15);
         Assertions.assertEquals(4, i);
+
     }
 
     @Test
@@ -56,6 +59,61 @@ public class CollectionsTest {
         //순서 보장 o
         Map<Integer, String> map2 = new TreeMap<>(map);
         System.out.println(map2);
+    }
+
+    @Test
+    @DisplayName("맵 정렬 테스트 (키)")
+    void mapSortTestByKey() {
+        Map<Integer, String> map = new HashMap<>();
+        map.put(1, "1");
+        map.put(2, "2");
+        map.put(3, "9");
+        map.put(89, "5");
+        map.put(227, "8");
+        map.put(0, "4");
+        map.put(4, "8");
+
+        //사실 SortedMap을 쓰면됨 데이터 추가하면 오버헤드 존재
+        SortedMap<Integer, String> sortedMap = new TreeMap<>(map);
+
+        //Stream을 사용하여
+        map.entrySet().stream().forEach(System.out::println);
+        System.out.println("===================");
+
+        // 값(Value) 정렬
+        LinkedHashMap<Integer, String> sortedValueMap = map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByValue())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                ));
+        sortedValueMap.entrySet().stream().forEach(System.out::println);
+        System.out.println("===================");
+
+        //키 정렬
+        LinkedHashMap<Integer, String> sortedKeyMap = map.entrySet()
+                .stream()
+                .sorted(Map.Entry.comparingByKey())
+                .collect(Collectors.toMap(
+                        Map.Entry::getKey,
+                        Map.Entry::getValue,
+                        (e1, e2) -> e1,
+                        LinkedHashMap::new
+                ));
+        sortedKeyMap.entrySet().stream().forEach(System.out::println);
+
+
+
+        //키, 값 정렬
+        LinkedHashMap<Integer, String> sortedKeyValueMap = map.entrySet()
+                .stream()
+                .sorted(Map.Entry.<Integer, String>comparingByKey().reversed()
+                        .thenComparing(Map.Entry.<Integer, String>comparingByValue().reversed()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue, (e1, e2) -> e1, LinkedHashMap::new));
+        sortedKeyValueMap.entrySet().stream().forEach(System.out::println);
 
     }
 }
