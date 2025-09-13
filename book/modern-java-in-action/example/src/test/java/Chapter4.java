@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Assertions;
+import com.my.Dish;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 
 import static java.util.stream.Collectors.toList;
 
-public class Chapter4 {
+class Chapter4 {
 
 
     List<Dish> menu = Arrays.asList(
@@ -68,39 +68,3 @@ public class Chapter4 {
 
 }
 
-class Dish {
-    private final String name;
-    private final boolean vegetarian;
-    private final int calories;
-    private final Type type;
-
-    Dish(String name, boolean vegetarian, int calories, Type type) {
-        this.name = name;
-        this.vegetarian = vegetarian;
-        this.calories = calories;
-        this.type = type;
-    }
-
-    public String getName(){
-        return name;
-    }
-
-    public boolean isVegetarian(){
-        return vegetarian;
-    }
-
-    public int getCalories(){
-        return calories;
-    }
-
-    public Type getType(){
-        return type;
-    }
-
-    @Override
-    public String toString() {
-        return name;
-    }
-
-    public enum Type {MEAT, FISH, OTHER}
-}
