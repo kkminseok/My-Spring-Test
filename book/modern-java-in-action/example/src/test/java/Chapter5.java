@@ -1,9 +1,12 @@
 import com.my.Dish;
+import com.my.Trader;
+import com.my.Transaction;
 import org.junit.jupiter.api.Test;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 import static java.util.stream.Collectors.toList;
 
@@ -86,9 +89,25 @@ public class Chapter5 {
         result3.stream().forEach(i -> {
             System.out.println("(" + i[0] + " "  + i[1] + ")");
         });
+    }
 
+    @Test
+    void reducingTest() {
+        List<Integer> integers = List.of(1, 2, 3, 4, 5);
+        Optional<Integer> maxInt = integers.stream()
+                .reduce(Integer::max);
+        Optional<Integer> minInt = integers.stream()
+                .reduce(Integer::min);
+        System.out.println(maxInt);
+        System.out.println(minInt);
+    }
 
-
+    @Test
+    void quiz3() {
+        Integer counting = menu.stream()
+                .map(dish -> 1)
+                .reduce(0, Integer::sum);
+        System.out.println(counting);
     }
 
 }
