@@ -6,11 +6,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import tools.jackson.databind.ObjectMapper;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 class ObservationKeyValueTest {
+
 
     @Autowired
     private PaymentService paymentService;
@@ -22,6 +24,7 @@ class ObservationKeyValueTest {
     void setUp() {
         observationHandler.clear();
     }
+
 
     @Test
     void shouldCaptureObservationWithKeyValues() {
