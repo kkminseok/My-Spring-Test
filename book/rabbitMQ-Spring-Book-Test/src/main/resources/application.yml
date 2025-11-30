@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: rabbitMQ-Spring-Book-Test
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
