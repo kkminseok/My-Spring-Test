@@ -3,6 +3,7 @@
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/book/modern-java-in-action/example" />
+    <file type="web" url="file://$PROJECT_DIR$/book/rabbitMQ-Spring-Book-Test" />
     <file type="web" url="file://$PROJECT_DIR$/Java-basic" />
     <file type="web" url="file://$PROJECT_DIR$/Java-String" />
     <file type="web" url="file://$PROJECT_DIR$/Java-Test" />
