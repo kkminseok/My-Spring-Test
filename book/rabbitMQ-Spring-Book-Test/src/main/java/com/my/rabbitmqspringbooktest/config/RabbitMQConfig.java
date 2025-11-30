@@ -24,6 +24,15 @@ public class RabbitMQConfig {
     public static final String AUTH_QUEUE_NAME = "user.deactivated.auth.queue";
     public static final String FEED_QUEUE_NAME = "user.deactivated.feed.queue";
 
+    public static final String TOPIC_EXCHANGE_NAME = "logs.topic.exchange";
+    public static final String ALL_LOGS_QUEUE="logs.all.queue";
+    public static final String ERROR_LOGS_QUEUE="logs.error.queue";
+    public static final String KOREAN_LOGS_QUEUE="logs.korea.queue";
+
+    public static final String BIDING_PATTERN_ALL="logs.#";
+    public static final String BIDING_PATTERN_ERROR="logs.error.*";
+    public static final String BINDING_PATTERN_KOREA="logs.*.korea";
+
 
     @Bean
     public TopicExchange exchange() {
@@ -40,6 +49,10 @@ public class RabbitMQConfig {
         return new FanoutExchange(FANOUT_EXCHANGE_NAME);
     }
 
+    @Bean
+    public TopicExchange topicExchange() {
+        return new TopicExchange(TOPIC_EXCHANGE_NAME);
+    }
 
     // --- Subscriber Queues ---
 
@@ -66,6 +79,21 @@ public class RabbitMQConfig {
     @Bean
     public Queue feedQueue() {
         return new Queue(FEED_QUEUE_NAME);
+    }
+
+    @Bean
+    public Queue allLogsQueue() {
+        return new Queue(ALL_LOGS_QUEUE);
+    }
+
+    @Bean
+    public Queue errorLogsQueue() {
+        return new Queue(ERROR_LOGS_QUEUE);
+    }
+
+    @Bean
+    public Queue koreanLogsQueue() {
+        return new Queue(KOREAN_LOGS_QUEUE);
     }
 
     // --- Subscriber Queues ---
@@ -96,6 +124,27 @@ public class RabbitMQConfig {
     @Bean
     public Binding feedBinding(Queue feedQueue, FanoutExchange fanoutExchange) {
         return BindingBuilder.bind(feedQueue).to(fanoutExchange);
+    }
+
+    @Bean
+    public Binding allLogsBinding(Queue allLogsQueue, TopicExchange topicExchange) {
+        return BindingBuilder.bind(allLogsQueue)
+                .to(topicExchange)
+                .with(BIDING_PATTERN_ALL);
+    }
+
+    @Bean
+    public Binding errorLogsBinding(Queue errorLogsQueue, TopicExchange topicExchange) {
+        return BindingBuilder.bind(errorLogsQueue)
+                .to(topicExchange)
+                .with(BIDING_PATTERN_ERROR);
+    }
+
+    @Bean
+    public Binding koreanLogsBinding(Queue koreanLogsQueue, TopicExchange topicExchange) {
+        return BindingBuilder.bind(koreanLogsQueue)
+                .to(topicExchange)
+                .with(BINDING_PATTERN_KOREA);
     }
 
 
