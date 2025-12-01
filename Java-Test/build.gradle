@@ -16,6 +16,7 @@ dependencies {
     testImplementation 'org.apache.httpcomponents.client5:httpclient5:5.4.2'
     testImplementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    testImplementation 'com.squareup.okhttp3:okhttp:4.10.0'
 }
 
 test {

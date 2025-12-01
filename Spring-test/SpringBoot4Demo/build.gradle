@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '4.0.0-RC1'
+    id 'org.springframework.boot' version '4.0.0'
     id 'io.spring.dependency-management' version '1.1.7'
 }
 
@@ -26,11 +26,6 @@ dependencies {
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 
-    // micrometer prometheus
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    implementation 'io.micrometer:micrometer-observation'
-    implementation 'io.micrometer:micrometer-tracing-bridge-brave' // tracing 사용 시
-    implementation("org.springframework.boot:spring-boot-starter-aop:4.0.0-M1")
 
 }
 

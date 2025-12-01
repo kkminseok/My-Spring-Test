@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import okhttp3.*;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.commons.text.RandomStringGenerator;
 import org.apache.hc.client5.http.classic.methods.HttpGet;
@@ -11,6 +12,7 @@ import org.apache.hc.core5.http.HttpStatus;
 import org.apache.hc.core5.http.ParseException;
 import org.apache.hc.core5.http.io.entity.EntityUtils;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
@@ -56,6 +58,29 @@ public class RestAPITest {
         Assertions.assertEquals("kkminseok", gitHubUser.login());
 
     }
+
+    @Test
+    @DisplayName("okhttp 테스트")
+    public void okhttpTest() throws IOException {
+        // Given
+
+
+        OkHttpClient client = new OkHttpClient();
+
+        // When
+        RequestBody body = RequestBody.Companion.create(null, MediaType.parse("application/json; charset=utf-8"));
+
+        Request request = new Request.Builder().url("http://tech.dev-oc.alpha-nhncloud.com:9003/cxsolution/api/v2/hub/setting/operation").put(body).build();
+
+        Call call = client.newCall(request);
+
+        Response response = call.execute();
+
+        System.out.println(response.body().string());
+
+        // Then
+    }
+
 
     private <T> T retrieveResourceFromResponse(final CloseableHttpResponse response, final Class<T> clazz) throws IOException, ParseException {
         final String jsonFromResponse = EntityUtils.toString(response.getEntity());
