@@ -6,6 +6,8 @@ import org.springframework.amqp.support.converter.MessageConverter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.Map;
+
 
 @Configuration
 public class RabbitMQConfig {
@@ -33,6 +35,10 @@ public class RabbitMQConfig {
     public static final String BIDING_PATTERN_ERROR="logs.error.*";
     public static final String BINDING_PATTERN_KOREA="logs.*.korea";
 
+    public static final String HEADERS_EXCHANGE_NAME="notification.headers.exchange";
+    public static final String SMS_NOTIFICATION_QUEUE="notification.sms.queue";
+    public static final String KAKAO_NOTIFICATION_QUEUE="notification.kakao.queue";
+
 
     @Bean
     public TopicExchange exchange() {
@@ -52,6 +58,11 @@ public class RabbitMQConfig {
     @Bean
     public TopicExchange topicExchange() {
         return new TopicExchange(TOPIC_EXCHANGE_NAME);
+    }
+
+    @Bean
+    public HeadersExchange headersExchange() {
+        return new HeadersExchange(HEADERS_EXCHANGE_NAME);
     }
 
     // --- Subscriber Queues ---
@@ -94,6 +105,16 @@ public class RabbitMQConfig {
     @Bean
     public Queue koreanLogsQueue() {
         return new Queue(KOREAN_LOGS_QUEUE);
+    }
+
+    @Bean
+    public Queue smsNotificationQueue() {
+        return new Queue(SMS_NOTIFICATION_QUEUE);
+    }
+
+    @Bean
+    public Queue kakaoNotificationQueue() {
+        return new Queue(KAKAO_NOTIFICATION_QUEUE);
     }
 
     // --- Subscriber Queues ---
@@ -145,6 +166,30 @@ public class RabbitMQConfig {
         return BindingBuilder.bind(koreanLogsQueue)
                 .to(topicExchange)
                 .with(BINDING_PATTERN_KOREA);
+    }
+
+    @Bean
+    public Binding kakaoBinding(Queue kakaoNotificationQueue, HeadersExchange headersExchange) {
+        Map<String,Object> headerValues = Map.of(
+                "channel", "kakao",
+                "beta-tester", "true"
+        );
+        return BindingBuilder.bind(kakaoNotificationQueue)
+                .to(headersExchange)
+                .whereAll(headerValues)
+                .match();
+    }
+
+    @Bean
+    public Binding smsBinding(Queue smsNotificationQueue, HeadersExchange headersExchange) {
+        Map<String,Object> headerValues = Map.of(
+                "channel", "sms",
+                "priority", "high"
+        );
+        return BindingBuilder.bind(smsNotificationQueue)
+                .to(headersExchange)
+                .whereAny(headerValues)
+                .match();
     }
 
 
