@@ -1,5 +1,6 @@
 package com.my.rabbitmqspringbooktest.controller;
 
+import com.my.rabbitmqspringbooktest.config.DeadLetterQueueConfig;
 import com.my.rabbitmqspringbooktest.config.RabbitMQConfig;
 import com.my.rabbitmqspringbooktest.dto.ImageTaskDto;
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,15 @@ public class DirectWorkController {
             rabbitTemplate.convertAndSend(RabbitMQConfig.DIRECT_EXCHANGE_NAME,
                     RabbitMQConfig.DIRECT_ROUTING_KEY,
                     task);
+
+
         }
+
+        // 3. DLQ 테스트용 에러 메시지 전송
+        rabbitTemplate.convertAndSend(DeadLetterQueueConfig.WORK_EXCHANGE,
+                DeadLetterQueueConfig.WORK_ROUTING_KEY,
+                new ImageTaskDto(UUID.randomUUID().toString(), "error-image.jpg", 800, 600));
+
 
         return "Image resize request sent.";
     }

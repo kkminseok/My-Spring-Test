@@ -3,10 +3,14 @@ spring:
     name: rabbitMQ-Spring-Book-Test
 
   rabbitmq:
-    host: localhost
+    host: 10.162.3.234
     port: 5672
     username: guest
     password: guest
     virtual-host: /
     publisher-confirm-type: correlated
     publisher-returns: true
+    listener:
+      simple:
+        acknowledge-mode: auto
+        default-requeue-rejected: false

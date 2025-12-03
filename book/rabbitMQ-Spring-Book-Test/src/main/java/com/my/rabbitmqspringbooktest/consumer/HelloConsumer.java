@@ -17,7 +17,7 @@ public class HelloConsumer {
             log.info("Received message: {}", message);
 
 
-            throw new NonRecoverableException("Simulated non-recoverable error",null);
+            //throw new NonRecoverableException("Simulated non-recoverable error",null);
         } catch (NonRecoverableException e) {
             log.error("Non-recoverable error occurred: {}", e.getMessage());
 
