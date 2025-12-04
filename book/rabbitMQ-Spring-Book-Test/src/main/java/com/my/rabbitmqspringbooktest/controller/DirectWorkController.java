@@ -42,9 +42,13 @@ public class DirectWorkController {
         }
 
         // 3. DLQ 테스트용 에러 메시지 전송
+//        rabbitTemplate.convertAndSend(DeadLetterQueueConfig.WORK_EXCHANGE,
+//                DeadLetterQueueConfig.WORK_ROUTING_KEY,
+//                new ImageTaskDto(UUID.randomUUID().toString(), "error-image.jpg", 800, 600));
+
         rabbitTemplate.convertAndSend(DeadLetterQueueConfig.WORK_EXCHANGE,
                 DeadLetterQueueConfig.WORK_ROUTING_KEY,
-                new ImageTaskDto(UUID.randomUUID().toString(), "error-image.jpg", 800, 600));
+                new ImageTaskDto(UUID.randomUUID().toString(), fileName, 800, 600));
 
 
         return "Image resize request sent.";

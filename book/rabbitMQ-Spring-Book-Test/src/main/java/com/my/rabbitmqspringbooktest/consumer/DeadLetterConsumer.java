@@ -24,25 +24,25 @@ public class DeadLetterConsumer {
 
     public static final int MAX_RETRY_COUNT = 3;
     public final RabbitTemplate rabbitTemplate;
-
-    @RabbitListener(queues = DeadLetterQueueConfig.WORK_QUEUE)
-    public void processImageTask(ImageTaskDto dto) {
-        log.info("work started processing task: {}", dto);
-        if("error-image.jpg".equalsIgnoreCase(dto.getOriginalFileName())) {
-            log.error("work error image file");
-            //재시도 불가능한 부분이므로 에러 발생
-            throw new IllegalArgumentException("Invalid Image format that cannot be processed.");
-        }
-
-        try {
-            //정상
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            Thread.currentThread().interrupt();
-        }
-
-        log.info("work finished processing task: {}", dto);
-    }
+//
+//    @RabbitListener(queues = DeadLetterQueueConfig.WORK_QUEUE)
+//    public void processImageTask(ImageTaskDto dto) {
+//        log.info("work started processing task: {}", dto);
+//        if("error-image.jpg".equalsIgnoreCase(dto.getOriginalFileName())) {
+//            log.error("work error image file");
+//            //재시도 불가능한 부분이므로 에러 발생
+//            throw new IllegalArgumentException("Invalid Image format that cannot be processed.");
+//        }
+//
+//        try {
+//            //정상
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            Thread.currentThread().interrupt();
+//        }
+//
+//        log.info("work finished processing task: {}", dto);
+//    }
 
     @RabbitListener(queues = DeadLetterQueueConfig.DEAD_LETTER_QUEUE, ackMode = "MANUAL")
     public void handleDeadLetter(Message deadLetter, Channel channel) {
