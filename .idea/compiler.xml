@@ -8,7 +8,7 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.sdkman/candidates/gradle/8.14.2/bin/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.42/8365263844ebb62398e0dc33057ba10ba472d3b8/lombok-1.18.42.jar" />
         </processorPath>
-        <module name="rabbitMQ-Spring-Book-Test.main" />
+        <module name="com.my.rabbitMQ-Spring-Book-Test.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -84,6 +84,8 @@
       <module name="SpringDataElasticSearchExample" options="-parameters" />
       <module name="SpringDataElasticSearchExample.main" options="-parameters" />
       <module name="SpringDataElasticSearchExample.test" options="-parameters" />
+      <module name="com.my.rabbitMQ-Spring-Book-Test.main" options="-parameters" />
+      <module name="com.my.rabbitMQ-Spring-Book-Test.test" options="-parameters" />
       <module name="rabbitMQ-Spring-Book-Test" options="-parameters" />
       <module name="rabbitMQ-Spring-Book-Test.main" options="-parameters" />
       <module name="rabbitMQ-Spring-Book-Test.test" options="-parameters" />
