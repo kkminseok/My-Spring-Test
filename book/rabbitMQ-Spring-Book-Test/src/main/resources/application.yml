@@ -14,3 +14,9 @@ spring:
       simple:
         acknowledge-mode: auto
         default-requeue-rejected: false
+  data:
+    redis:
+      host: localhost
+      port: 6379
+server:
+  port: 8111
