@@ -1,0 +1,17 @@
+server:
+  port: 7273
+
+spring:
+  application:
+    name: notification-service
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    publisher-confirm-type: correlated # Publisher Confirm
+    publisher-returns: true
+    template:
+      message-delivery-mode: persistent # message durability
+
+

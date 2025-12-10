@@ -8,13 +8,14 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.sdkman/candidates/gradle/8.14.2/bin/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.42/8365263844ebb62398e0dc33057ba10ba472d3b8/lombok-1.18.42.jar" />
         </processorPath>
-        <module name="com.my.rabbitMQ-Spring-Book-Test.main" />
+        <module name="notification-service.main" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com.my.Java-web.test" target="24" />
       <module name="Java-web.main" target="21" />
       <module name="Java-web.test" target="21" />
+      <module name="rabbitMQ-Spring-Book-Test" target="17" />
       <module name="Spring-Webflux-Chaninning-Asnyc.main" target="17" />
       <module name="Spring-Webflux-Chaninning-Asnyc.test" target="17" />
     </bytecodeTargetLevel>
@@ -86,9 +87,21 @@
       <module name="SpringDataElasticSearchExample.test" options="-parameters" />
       <module name="com.my.rabbitMQ-Spring-Book-Test.main" options="-parameters" />
       <module name="com.my.rabbitMQ-Spring-Book-Test.test" options="-parameters" />
+      <module name="notification-service" options="-parameters" />
+      <module name="notification-service.main" options="-parameters" />
+      <module name="notification-service.test" options="-parameters" />
+      <module name="order-service" options="-parameters" />
+      <module name="order-service.main" options="-parameters" />
+      <module name="order-service.test" options="-parameters" />
+      <module name="payment-service" options="-parameters" />
+      <module name="payment-service.main" options="-parameters" />
+      <module name="payment-service.test" options="-parameters" />
       <module name="rabbitMQ-Spring-Book-Test" options="-parameters" />
       <module name="rabbitMQ-Spring-Book-Test.main" options="-parameters" />
       <module name="rabbitMQ-Spring-Book-Test.test" options="-parameters" />
+      <module name="stock-service" options="-parameters" />
+      <module name="stock-service.main" options="-parameters" />
+      <module name="stock-service.test" options="-parameters" />
     </option>
   </component>
 </project>
