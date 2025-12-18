@@ -80,6 +80,7 @@ public class PaymentEventConfig {
 
 
         idClassMapping.put("org.example.orderservice.dto.OrderCreatedEvent", OrderCreatedEvent.class);
+        idClassMapping.put("org.example.paymentservice.dto.PaymentCompletedEvent", org.example.paymentservice.dto.PaymentCompletedEvent.class);
 
         classMapper.setIdClassMapping(idClassMapping);
         return classMapper;
