@@ -9,7 +9,6 @@
       <module fileurl="file://$PROJECT_DIR$/baeldung-test.iml" filepath="$PROJECT_DIR$/baeldung-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.my.Java-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.my.Java-web.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/payment-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/payment-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rabbitMQ-Spring-Book-Test.main.iml" filepath="$PROJECT_DIR$/.idea/modules/rabbitMQ-Spring-Book-Test.main.iml" />
     </modules>
   </component>

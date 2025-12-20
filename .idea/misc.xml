@@ -31,6 +31,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Producer" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-Retry-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Kafka-TopologyTest-Sample" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-Max-Message-Disk-Monitoring" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-Boot-RabbitMQ-QuorumQueueTest" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-RabbitMQ-STOMP-1ON1-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-messaging/Spring-RabbitMQ-STOMP-Sample" />
@@ -39,7 +40,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-AsyncDiffTest" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Error-handling" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Filter" />
-    <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-guide" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Guide" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-HttpStatus" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-mono-flux-test" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-static-content" />
@@ -57,7 +58,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-Artemis-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-example" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_24" default="true" project-jdk-name="24" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="24" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
