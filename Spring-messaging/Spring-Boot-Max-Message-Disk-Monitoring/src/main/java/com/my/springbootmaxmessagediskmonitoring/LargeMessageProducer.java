@@ -11,8 +11,8 @@ import java.util.Arrays;
 @RequiredArgsConstructor
 public class LargeMessageProducer {
 
-    private static final int MESSAGE_SIZE_BYTES = 4 * 1024 * 500; // ~2MB
-    private static final int MESSAGE_COUNT = 1000;
+    private static final int MESSAGE_SIZE_BYTES = 4 * 1024 * 1000; // ~4MB
+    private static final int MESSAGE_COUNT = 2000;
 
     private final RabbitTemplate rabbitTemplate;
 
@@ -23,8 +23,10 @@ public class LargeMessageProducer {
 
         for (int i = 0; i < MESSAGE_COUNT; i++) {
             rabbitTemplate.convertAndSend(
-                    "exchange.classic",
-                    "routing.classic",
+                    //"exchange.classic",
+                    //"routing.classic",
+                    "exchange.quorum",
+                    "routing.quorum",
                     payload
             );
 
