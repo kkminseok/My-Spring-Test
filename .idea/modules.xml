@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java-String.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Java-String.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java-web.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Java-web.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Java-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Java-web.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/JavaTestQualityTest.test.iml" filepath="$PROJECT_DIR$/.idea/modules/JavaTestQualityTest.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/baeldung-test.iml" filepath="$PROJECT_DIR$/baeldung-test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.my.Java-web.test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.my.Java-web.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/order-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/order-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/rabbitMQ-Spring-Book-Test.main.iml" filepath="$PROJECT_DIR$/.idea/modules/rabbitMQ-Spring-Book-Test.main.iml" />
     </modules>
   </component>

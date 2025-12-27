@@ -9,6 +9,7 @@
     <file type="web" url="file://$PROJECT_DIR$/book/spring-boot-rabbitmq/payment-service" />
     <file type="web" url="file://$PROJECT_DIR$/book/spring-boot-rabbitmq/rabbitMQ-Spring-Book-Test" />
     <file type="web" url="file://$PROJECT_DIR$/book/spring-boot-rabbitmq/stock-service" />
+    <file type="web" url="file://$PROJECT_DIR$/book/spring-security-in-action/hello-security" />
     <file type="web" url="file://$PROJECT_DIR$/Java-basic" />
     <file type="web" url="file://$PROJECT_DIR$/Java-String" />
     <file type="web" url="file://$PROJECT_DIR$/Java-Test" />
@@ -40,7 +41,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-AsyncDiffTest" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Error-handling" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Filter" />
-    <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-guide" />
+    <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-Guide" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-HttpStatus" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-mono-flux-test" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-reactive/Spring-Webflux-static-content" />
@@ -58,7 +59,7 @@
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-Artemis-Sample" />
     <file type="web" url="file://$PROJECT_DIR$/Spring-WebSocket/Spring-STOMP-example" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_24" default="true" project-jdk-name="24" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_22" default="true" project-jdk-name="24" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
