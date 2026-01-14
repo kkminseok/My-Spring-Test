@@ -65,7 +65,7 @@ class CacheConfigTest {
         // TODO: 빈칸을 채우세요
         // @CacheConfig에서 지정한 "users" 캐시에 저장되었는지 확인
         boolean existsInUsersCache = (usersCache != null && usersCache.get(1L) != null);
-        assertEquals(_____, existsInUsersCache,
+        assertEquals(true, existsInUsersCache,
                 "@CacheConfig의 기본 캐시 이름이 적용되었나요?");
     }
 
@@ -89,8 +89,8 @@ class CacheConfigTest {
         boolean existsInUsersCache = (usersCache != null && usersCache.get(1L) != null);
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, existsInPremiumCache, "premiumUsers 캐시에 저장되었나요?");
-        assertEquals(_____, existsInUsersCache, "users 캐시에는 저장되지 않았나요?");
+        assertEquals(true, existsInPremiumCache, "premiumUsers 캐시에 저장되었나요?");
+        assertEquals(false, existsInUsersCache, "users 캐시에는 저장되지 않았나요?");
     }
 
     // =========================================================================
@@ -115,7 +115,7 @@ class CacheConfigTest {
         boolean deletedFromCache = (usersCache.get(1L) == null);
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, deletedFromCache,
+        assertEquals(true, deletedFromCache,
                 "@CacheEvict가 @CacheConfig의 캐시 이름을 사용했나요?");
     }
 
@@ -157,7 +157,7 @@ class CacheConfigTest {
         boolean cached = (usersCache.get(2L) != null);
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, cached, "@CacheConfig 덕분에 cacheNames 생략해도 동작");
+        assertEquals(true, cached, "@CacheConfig 덕분에 cacheNames 생략해도 동작");
     }
 
     // =========================================================================
@@ -174,5 +174,5 @@ class CacheConfigTest {
     // =========================================================================
     // 💡 빈칸 플레이스홀더
     // =========================================================================
-    private static final boolean _____ = false;  // true 또는 false로 바꾸세요
+    private static final boolean _____ = true;  // true 또는 false로 바꾸세요
 }

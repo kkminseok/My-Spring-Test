@@ -73,7 +73,7 @@ class SpELExpressionTest {
 
         // Then: #p0 = #id 이므로 캐시 히트
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, userService.getFindByIdCallCount(),
+        assertEquals(1, userService.getFindByIdCallCount(),
                 "#p0이 첫 번째 파라미터를 정확히 참조하여 캐시 동작");
     }
 
@@ -96,7 +96,7 @@ class SpELExpressionTest {
         // TODO: 빈칸을 채우세요
         // key="#user.id"이므로 캐시 키는 user.getId() = 1L
         boolean cachedWithUserId = (usersCache.get(1L) != null);
-        assertEquals(_____, cachedWithUserId,
+        assertEquals(true, cachedWithUserId,
                 "#user.id로 캐시 키가 생성되었나요?");
     }
 
@@ -120,7 +120,7 @@ class SpELExpressionTest {
         boolean cachedWithMethodNameKey = (usersCache.get(expectedKey) != null);
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, cachedWithMethodNameKey,
+        assertEquals(true, cachedWithMethodNameKey,
                 "#root.methodName이 캐시 키에 포함되었나요?");
     }
 
@@ -151,8 +151,8 @@ class SpELExpressionTest {
         // - 활성 사용자: condition=true, unless=false -> 캐시됨 -> 1번만 실행
         // - 비활성 사용자: condition=true, unless=true -> 캐시 안됨 -> 2번 실행
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, countForActiveUser, "활성 사용자는 캐시됨");
-        assertEquals(_____, countForInactiveUser, "비활성 사용자는 캐시 안됨 (unless 조건)");
+        assertEquals(1, countForActiveUser, "활성 사용자는 캐시됨");
+        assertEquals(2, countForInactiveUser, "비활성 사용자는 캐시 안됨 (unless 조건)");
     }
 
     // =========================================================================
@@ -171,7 +171,7 @@ class SpELExpressionTest {
 
         // Then: result가 null이므로 unless 조건에 의해 캐시 안됨
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, userService.getFindByIdCallCount(),
+        assertEquals(2, userService.getFindByIdCallCount(),
                 "null 결과는 캐시되지 않음 (unless 조건)");
     }
 
@@ -191,7 +191,7 @@ class SpELExpressionTest {
 
         // Then: condition=false이므로 캐시 사용 X, 매번 실행
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, userService.getFindByIdCallCount(),
+        assertEquals(2, userService.getFindByIdCallCount(),
                 "condition=false면 캐시를 전혀 사용하지 않음");
     }
 
@@ -207,22 +207,22 @@ class SpELExpressionTest {
          * 각 표현식이 무엇을 의미하는지 맞춰보세요.
          *
          * Q1: #isbn
-         *     A: _______________ (힌트: 파라미터)
+         *     A: isbn을 키로 가짐 (힌트: 파라미터)
          *
          * Q2: #p0
-         *     A: _______________ (힌트: 인덱스)
+         *     A: 첫 번째 파라미터를 키로가짐 (힌트: 인덱스)
          *
          * Q3: #book.author
-         *     A: _______________ (힌트: 중첩 속성)
+         *     A: book객체의 author를 키로가짐. (힌트: 중첩 속성)
          *
          * Q4: #root.methodName
-         *     A: _______________ (힌트: 메서드)
+         *     A: 메서드의 이르믈 키로 가짐. (힌트: 메서드)
          *
          * Q5: #result?.title
-         *     A: _______________ (힌트: null-safe)
+         *     A: result가 null이 아니면 title 속성, null이면 null (힌트: null-safe)
          *
          * Q6: #name.length() > 10
-         *     A: _______________ (힌트: 메서드 호출)
+         *     A: 파라미터로 들어온 Name이 10보다 커야함. (힌트: 메서드 호출)
          */
 
         // 정답은 아래 주석 참조!

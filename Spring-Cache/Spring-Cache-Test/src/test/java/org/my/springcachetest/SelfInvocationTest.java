@@ -65,7 +65,7 @@ class SelfInvocationTest {
         // 두 번째: 캐시 히트 -> 메서드 실행 X
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, selfInvocationService.getCachedMethodCallCount(),
+        assertEquals(1, selfInvocationService.getCachedMethodCallCount(),
                 "외부 호출 시 캐시가 동작하여 메서드는 1번만 실행됩니다");
     }
 
@@ -88,7 +88,7 @@ class SelfInvocationTest {
         // 따라서 getCachedData()가 매번 실행됨
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, selfInvocationService.getCachedMethodCallCount(),
+        assertEquals(2, selfInvocationService.getCachedMethodCallCount(),
                 "Self-Invocation: 캐시가 동작하지 않아 메서드가 매번 실행됩니다");
     }
 
@@ -120,8 +120,8 @@ class SelfInvocationTest {
         // - Self-Invocation: 캐시 안됨 -> 2번 실행
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, externalCallCount, "외부 호출: 캐시 동작");
-        assertEquals(_____, selfInvocationCallCount, "Self-Invocation: 캐시 미동작");
+        assertEquals(1, externalCallCount, "외부 호출: 캐시 동작");
+        assertEquals(2, selfInvocationCallCount, "Self-Invocation: 캐시 미동작");
 
         // 이 차이가 Self-Invocation 문제입니다!
         assertNotEquals(externalCallCount, selfInvocationCallCount,
@@ -147,7 +147,7 @@ class SelfInvocationTest {
 
         // Then: Self-Invocation은 캐시를 체크하지 않으므로 메서드 실행됨
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, selfInvocationService.getCachedMethodCallCount(),
+        assertEquals(2, selfInvocationService.getCachedMethodCallCount(),
                 "이미 캐시에 있어도 Self-Invocation은 캐시를 사용하지 않습니다");
     }
 

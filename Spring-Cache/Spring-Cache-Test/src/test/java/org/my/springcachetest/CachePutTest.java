@@ -60,7 +60,7 @@ class CachePutTest {
 
         // Then: @CachePut은 캐시 여부와 관계없이 항상 메서드 실행
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, bookService.getUpdateBookCallCount(),
+        assertEquals(3, bookService.getUpdateBookCallCount(),
                 "@CachePut은 매번 메서드를 실행합니다");
     }
 
@@ -85,13 +85,13 @@ class CachePutTest {
         Book cachedBook = bookService.findByIsbn(ISBN_EFFECTIVE_JAVA);
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, cachedBook.getTitle(),
+        assertEquals("Effective Java 4th Edition", cachedBook.getTitle(),
                 "@CachePut이 캐시를 갱신했으므로 새 제목이 반환되어야 합니다");
-        assertEquals(_____, cachedBook.getPrice(),
+        assertEquals(55000, cachedBook.getPrice(),
                 "@CachePut이 캐시를 갱신했으므로 새 가격이 반환되어야 합니다");
 
         // 캐시 히트이므로 메서드 실행 안됨
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(0, bookService.getFindByIsbnCallCount(),
                 "캐시에서 조회했으므로 메서드 호출 횟수는?");
     }
 
@@ -114,7 +114,7 @@ class CachePutTest {
         // TODO: @Cacheable은 두 번째 호출에서 메서드를 실행하지 않음
         // 빈칸을 채우세요 (true 또는 false)
         boolean cacheableSkippedExecution = (cacheableCount1 == cacheableCount2);
-        assertEquals(_____, cacheableSkippedExecution,
+        assertEquals(true, cacheableSkippedExecution,
                 "@Cacheable은 캐시 히트 시 메서드 실행을 건너뛰나요?");
 
         // ===== @CachePut 동작 =====
@@ -132,7 +132,7 @@ class CachePutTest {
         // TODO: @CachePut은 매번 메서드를 실행
         // 빈칸을 채우세요 (true 또는 false)
         boolean cachePutAlwaysExecutes = (cachePutCount2 > cachePutCount1);
-        assertEquals(_____, cachePutAlwaysExecutes,
+        assertEquals(true, cachePutAlwaysExecutes,
                 "@CachePut은 항상 메서드를 실행하나요?");
     }
 
@@ -155,9 +155,9 @@ class CachePutTest {
         Book cachedBook = bookService.findByIsbn(newIsbn);
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, cachedBook.getTitle(),
+        assertEquals("New Book", cachedBook.getTitle(),
                 "@CachePut으로 저장한 책 제목");
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(0, bookService.getFindByIsbnCallCount(),
                 "@CachePut이 캐시에 저장했으므로 @Cacheable은 캐시 히트");
     }
 

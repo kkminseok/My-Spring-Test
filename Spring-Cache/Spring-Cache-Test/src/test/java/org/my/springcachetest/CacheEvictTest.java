@@ -72,7 +72,7 @@ class CacheEvictTest {
 
         // TODO: 빈칸을 채우세요
         // 캐시가 삭제되었으므로 메서드가 다시 실행됨
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(2, bookService.getFindByIsbnCallCount(),
                 "@CacheEvict 후 메서드 호출 횟수는?");
     }
 
@@ -103,8 +103,8 @@ class CacheEvictTest {
         int countAfterEffectiveJava = bookService.getFindByIsbnCallCount();
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, countForJavascript, "JAVASCRIPT는 캐시 히트 (삭제 안됨)");
-        assertEquals(_____, countAfterEffectiveJava, "EFFECTIVE_JAVA는 캐시 미스 (삭제됨)");
+        assertEquals(0, countForJavascript, "JAVASCRIPT는 캐시 히트 (삭제 안됨)");
+        assertEquals(1, countAfterEffectiveJava, "EFFECTIVE_JAVA는 캐시 미스 (삭제됨)");
     }
 
     // =========================================================================
@@ -139,7 +139,7 @@ class CacheEvictTest {
 
         // TODO: 빈칸을 채우세요
         // 모든 캐시가 삭제되었으므로 전부 메서드 실행
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(3, bookService.getFindByIsbnCallCount(),
                 "allEntries=true로 삭제 후 메서드 호출 횟수는?");
     }
 
@@ -174,7 +174,7 @@ class CacheEvictTest {
 
         // TODO: 빈칸을 채우세요
         // 아까 저장한 캐시가 그대로이므로 캐시 히트
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(0, bookService.getFindByIsbnCallCount(),
                 "다른 키의 캐시는 영향 없음");
 
         // ===== beforeInvocation=true의 특성 테스트 =====
@@ -217,7 +217,7 @@ class CacheEvictTest {
         bookService.findByIsbn(ISBN_EFFECTIVE_JAVA);
 
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(1, bookService.getFindByIsbnCallCount(),
                 "void 메서드도 캐시를 삭제할 수 있습니다");
     }
 

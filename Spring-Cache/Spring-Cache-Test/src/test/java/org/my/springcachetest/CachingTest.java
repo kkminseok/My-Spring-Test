@@ -107,8 +107,8 @@ class CachingTest {
         boolean isbn1Deleted = (booksCache.get(isbn1) == null);
         boolean isbn2Exists = (booksCache.get(isbn2) != null);
 
-        assertEquals(_____, isbn1Deleted, "isbn1은 삭제되었나요?");
-        assertEquals(_____, isbn2Exists, "isbn2는 유지되었나요?");
+        assertEquals(true, isbn1Deleted, "isbn1은 삭제되었나요?");
+        assertEquals(true, isbn2Exists, "isbn2는 유지되었나요?");
     }
 
     // =========================================================================
@@ -140,7 +140,7 @@ class CachingTest {
 
         // TODO: 빈칸을 채우세요
         // 두 메서드 모두 캐시 미스이므로 각각 1번씩 실행
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(2, bookService.getFindByIsbnCallCount(),
                 "두 종류의 캐시에서 모두 삭제되어 메서드가 몇 번 실행되나요?");
     }
 
