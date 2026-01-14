@@ -61,7 +61,7 @@ class CacheableTest {
 
         // Then: 메서드가 실행되었으므로 카운터는 1
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(1, bookService.getFindByIsbnCallCount(),
                 "첫 번째 호출 후 카운터 값은?");
 
         // When: 같은 ISBN으로 두 번째 호출
@@ -69,7 +69,7 @@ class CacheableTest {
 
         // Then: 캐시 히트! 메서드가 실행되지 않으므로 카운터는 여전히 1
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(1, bookService.getFindByIsbnCallCount(),
                 "캐시 히트 후 카운터 값은?");
 
         // 반환된 객체는 동일해야 함
@@ -93,7 +93,7 @@ class CacheableTest {
 
         // Then: 다른 키이므로 캐시 미스, 메서드가 다시 실행됨
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, countAfterSecond - countAfterFirst,
+        assertEquals(1, countAfterSecond - countAfterFirst,
                 "다른 키로 호출하면 메서드가 몇 번 더 실행되나요?");
     }
 
@@ -116,7 +116,7 @@ class CacheableTest {
 
         // Then: key="#title"이므로 includeOutOfPrint 값이 달라도 캐시 히트
         // TODO: 빈칸을 채우세요 (countAfterFirst와 countAfterSecond가 같은가요?)
-        assertEquals(_____, countAfterSecond,
+        assertEquals(1, countAfterSecond,
                 "key=#title이므로 두 번째 파라미터가 달라도 캐시 히트해야 합니다");
     }
 
@@ -147,8 +147,8 @@ class CacheableTest {
         // - 짧은 ISBN: condition=false이므로 매번 메서드 실행 (캐시 사용 X)
         // - 긴 ISBN: condition=true이므로 첫 번째만 실행, 두 번째는 캐시 히트
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, countForShortIsbn, "condition=false면 캐시를 사용하지 않음");
-        assertEquals(_____, countForLongIsbn, "condition=true면 캐시를 사용함");
+        assertEquals(2, countForShortIsbn, "condition=false면 캐시를 사용하지 않음");
+        assertEquals(1, countForLongIsbn, "condition=true면 캐시를 사용함");
     }
 
     // =========================================================================
@@ -177,8 +177,8 @@ class CacheableTest {
         // - 양장본: unless 조건에 해당하므로 캐시에 저장 안됨 -> 매번 실행
         // - 일반판: 캐시에 저장됨 -> 두 번째는 캐시 히트
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, countForHardback, "양장본은 캐시에 저장되지 않음");
-        assertEquals(_____, countForNormal, "일반판은 캐시에 저장됨");
+        assertEquals(2, countForHardback, "양장본은 캐시에 저장되지 않음");
+        assertEquals(1, countForNormal, "일반판은 캐시에 저장됨");
     }
 
     // =========================================================================
@@ -201,7 +201,7 @@ class CacheableTest {
 
         // TODO: 빈칸을 채우세요
         // 기본 @Cacheable은 null도 캐시하므로 메서드는 1번만 실행됨
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(1, bookService.getFindByIsbnCallCount(),
                 "기본 @Cacheable은 null도 캐시합니다");
     }
 
@@ -221,7 +221,7 @@ class CacheableTest {
 
         // Then: unless 조건에 의해 null은 캐시되지 않으므로 매번 실행
         // TODO: 빈칸을 채우세요
-        assertEquals(_____, bookService.getFindByIsbnCallCount(),
+        assertEquals(2, bookService.getFindByIsbnCallCount(),
                 "unless로 null을 제외하면 매번 메서드가 실행됩니다");
     }
 
